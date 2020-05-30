@@ -1,0 +1,49 @@
+<h3>Tests history</h3>
+
+<table class="table table bordered table-stripped">
+  <thead>
+    <th>
+      Id
+    </th>
+    <th>
+      Url
+    </th>
+    <th>
+      Min response time
+    </th>
+    <th>
+      Max response time
+    </th>
+    <th>
+      Actions
+    </th>
+  </thead>
+  <tbody>
+    <tr *ngIf="!benchmarkEntries" class="table-info">
+      <td colspan="5" class="text-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">
+            Loading...
+          </span>
+        </div>
+      </td>
+    </tr>
+    <tr *ngFor="let entry of benchmarkEntries">
+      <td>
+        {{ entry.id }}
+      </td>
+      <td>
+        {{ entry.uri }}
+      </td>
+      <td>
+        {{ entry.minResponseTime }}
+      </td>
+      <td>
+        {{ entry.maxResponseTime }}
+      </td>
+      <td>
+        <a routerLink='./{{entry.id}}'>Details</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

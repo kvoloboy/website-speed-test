@@ -1,0 +1,25 @@
+<form [formGroup]="websiteTestForm" (ngSubmit) = "onFormSubmit()">
+  <div class="form-group d-flex justify-content-around">
+    <div class="w-75">
+      <input id="search" class="form-control" formControlName="uri" type="text" placeholder="Enter url here" aria-label="Search">
+      <label for="search">
+        <small>Website url should start with http(s)://</small>
+      </label>
+    </div>
+    <div>
+      <button [disabled]="!websiteTestForm.valid" class="btn btn-outline-primary" type="submit">
+        Begin testing
+      </button>
+    </div>
+  </div>
+</form>
+<div *ngIf="!requestBenchmarkEntry && processingStarted" class="text-center">
+    <div class="spinner-border text-center m-3" role="status">
+      <span class="sr-only">
+        Loading...
+      </span>
+    </div>
+</div>
+<ng-container *ngIf='requestBenchmarkEntry'>
+  <app-display-speed-test [requestBenchmarkEntry]="requestBenchmarkEntry"></app-display-speed-test>
+</ng-container>
