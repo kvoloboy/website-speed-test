@@ -1,0 +1,49 @@
+<h2>Site url: {{ requestBenchmarkEntry.uri }}</h2>
+<div id="chartContainer"></div>
+
+<table class="table table-bordered table-stripped">
+  <thead>
+    <th>
+      Url
+    </th>
+    <th>
+      Response time
+    </th>
+    <th>
+      Status code
+    </th>
+    <th>
+      Success
+    </th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let endpoint of requestBenchmarkEntry.endpoints">
+      <td>
+        {{ endpoint.uri }}
+      </td>
+      <td>
+        {{ endpoint.responseTime }}
+      </td>
+      <td>
+        {{ endpoint.statusCode }}
+      </td>
+      <td>
+        {{ endpoint.success }}
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <td colspan="2">
+      Min response time:
+      <span class="font-weight-bold">
+        {{requestBenchmarkEntry.minResponseTime}}
+      </span>
+    </td>
+    <td colspan="2">
+      Max response time:
+      <span class="font-weight-bold">
+        {{requestBenchmarkEntry.maxResponseTime}}
+      </span>
+    </td>
+  </tfoot>
+</table>
