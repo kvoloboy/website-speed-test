@@ -1,6 +1,6 @@
 import { RequestBenchmarkEntry } from "./../../models/request-benchmark-entry";
 import { Component, OnInit, Input } from "@angular/core";
-import * as CanvasJS from "./lib/canvasjs.min";
+import * as CanvasJS from "../../assets/lib/canvasjs.min";
 
 @Component({
   selector: "app-display-speed-test",

@@ -1,13 +1,15 @@
 <form [formGroup]="websiteTestForm" (ngSubmit) = "onFormSubmit()">
   <div class="form-group d-flex justify-content-around">
     <div class="w-75">
-      <input id="search" class="form-control" formControlName="uri" type="text" placeholder="Enter url here" aria-label="Search">
+      <input id="search" class="form-control" formControlName="uri" [class.is-invalid]='websiteTestForm.get("uri").errors' 
+        type="text" placeholder="Enter url here" aria-label="Search">
       <label for="search">
         <small>Website url should start with http(s)://</small>
       </label>
     </div>
     <div>
-      <button [disabled]="!websiteTestForm.valid" class="btn btn-outline-primary" type="submit">
+      <button [disabled]="!websiteTestForm.get('uri').value || !websiteTestForm.valid" 
+        class="btn btn-outline-primary" type="submit">
         Begin testing
       </button>
     </div>

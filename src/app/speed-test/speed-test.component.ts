@@ -10,16 +10,17 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class SpeedTestComponent {
   
-  requestBenchmarkEntry: RequestBenchmarkEntry;
-  processingStarted: boolean = false;
-
   constructor(
     private speedTestService: WebsiteSpeedTestService
-  ) { }
-
+    ) { }
+    
+    public requestBenchmarkEntry: RequestBenchmarkEntry;
+    public processingStarted: boolean = false;
     public websiteTestForm = new FormGroup({
       uri: new FormControl(undefined, Validators.pattern('^https?:\/\/.*'))
     });
+
+
 
   onFormSubmit(){
     this.requestBenchmarkEntry = null;
